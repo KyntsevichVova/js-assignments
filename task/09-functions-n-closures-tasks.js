@@ -50,7 +50,7 @@ function getComposition(f,g) {
  */
 function getPowerFunction(exponent) {
     return (x) => {
-        return x ** exponent; 
+        return Math.pow(x, exponent); 
     };
 }
 
