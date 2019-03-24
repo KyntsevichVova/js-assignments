@@ -38,12 +38,11 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-   throw new Error('Not implemented');
-   /*let arr = new Array(len);
-   arr = arr.map((value, index) => {
+   let arr = new Array(len);
+   arr.fill(0);
+   return arr.map((value, index) => {
       return 2 * index + 1;
    });
-   return arr;*/
 }
 
 
@@ -92,9 +91,8 @@ function getArrayOfPositives(arr) {
  *    [ 'cat', 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 function getArrayOfStrings(arr) {
-   throw new Error('Not implemented');
    return arr.filter((value) => {
-      return new String(value) == value;
+      return (value instanceof String) || (typeof(value) == 'string');
    });
 }
 
@@ -256,9 +254,10 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-   throw new Error('Not implemented');
-   return arr.map((value, index, array) => {
-      return ((index == 0) ? 0 : array[index - 1]) + value;
+   let sum = 0;
+   return arr.map((value) => {
+      sum += value;
+      return sum;
    });
 }
 
@@ -453,9 +452,8 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-   throw new Error('Not implemented');
    return arr.sort((a, b) => {
-      return (a.country > b.country) || (a.country == b.country && a.city > b.city);
+      return a.country.localeCompare(b.country) || a.city.localeCompare(b.city);
    });
 }
 
